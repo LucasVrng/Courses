@@ -304,6 +304,10 @@ input:focus-visible {
     margin-top: 10px;
 }
 
+.hidden {
+    display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     * {
         transition: none !important;
