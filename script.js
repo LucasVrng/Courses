@@ -15,7 +15,7 @@ const categoriesIcons = {
 
 // --- Verrou par mot de passe familial ---
 const STORAGE_KEY = "shopping_list_authenticated"
-const PASSWORD_HASH = "COLLE_ICI_TON_HASH"
+const PASSWORD_HASH = "025fc2116772001c95603db8a63c3835f10f10449b3cfaf94f3e1487757bff7a"
 
 const gateDiv = document.getElementById("passwordGate")
 const appContent = document.getElementById("appContent")
@@ -339,4 +339,41 @@ async function init() {
     renderMissingSection()
     showLocationsView()
     subscribeToRealtimeUpdates()
+}
+
+async function sha256(text) {
+    const data = new TextEncoder().encode(text)
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+    return Array.from(new Uint8Array(hashBuffer))
+        .map(b => b.toString(16).padStart(2, '0'))
+        .join('')
+}
+
+function unlockApp() {
+    gateDiv.classList.add("hidden")
+    appContent.classList.remove("hidden")
+    init() // lance le chargement de l'appli (défini plus bas dans ton fichier)
+}
+
+async function checkPassword() {
+    const hash = await sha256(gatePasswordInput.value)
+
+    if (hash === PASSWORD_HASH) {
+        localStorage.setItem(STORAGE_KEY, "true")
+        unlockApp()
+    } else {
+        gateError.classList.remove("hidden")
+        gatePasswordInput.value = ""
+    }
+}
+
+gateSubmitBtn.addEventListener("click", checkPassword)
+gatePasswordInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") checkPassword()
+})
+
+if (localStorage.getItem(STORAGE_KEY) === "true") {
+    unlockApp()
+} else {
+    gateDiv.classList.remove("hidden")
 }
