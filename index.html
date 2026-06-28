@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="passwordGate">
+        <div class="gate-box">
+            <h2>Accès réservé</h2>
+            <input id="gatePassword" type="password" placeholder="Mot de passe">
+            <button id="gateSubmit">Entrer</button>
+            <p id="gateError" class="hidden">Mot de passe incorrect</p>
+        </div>
+    </div>
+
+    <div id="appContent" class="hidden">
+    <main>
+        <h1 id="main-title">Liste de courses</h1>
+        <button id="backBtn" class="hidden">⬅ Retour</button>
+
+        <input id="searchBar" placeholder="Rechercher un produit">
+
+        <section id="locations">
+            <h2>Emplacements</h2>
+            <div id="cuisine"><h3>Cuisine</h3></div>
+            <div id="frigo"><h3>Frigo</h3></div>
+            <div id="salleDeBain"><h3>Salle de Bain</h3></div>
+            <div id="cellier"><h3>Cellier</h3></div>
+            <div id="autres"><h3>Autres</h3></div>
+        </section>
+
+        <section id="locationProducts" class="hidden">
+            <h2 id="locationProductsTitle">Produits</h2>
+            <div id="locationProductsList"></div>
+        </section>
+
+        <section id="searchResults" class="hidden">
+            <h2>Résultats de recherche</h2>
+            <div id="searchResultsList"></div>
+        </section>
+
+        <section id="productsMissing">
+            <h2>A acheter</h2>
+            <div id="missingProductsList"></div>
+        </section>
+    </main>
+
+    <footer id="footer">Site fait avec amour pour éviter les tracas du quotidien</footer>
+    <button id="resetBtn">Réinitialiser la liste</button>
+
+    </div>
+    
+    <script src="script.js" type="module"></script>
+</body>
+</html>

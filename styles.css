@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --bg: #eef1e7;
+    --surface: #ffffff;
+    --text: #2a2e29;
+    --text-muted: #6b7066;
+    --brand: #4f6f52;
+    --brand-dark: #3a5440;
+    --accent: #e8a33d;
+    --accent-soft: #fbe9cf;
+    --border: #d9dccd;
+    --radius: 14px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    display: block;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.4;
+}
+
+main {
+    width: 100%;
+    min-height: 90vh;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+}
+
+h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin: 28px 0 12px;
+}
+
+#main-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: clamp(28px, 2.5vw, 42px);
+    font-weight: 600;
+    text-align: center;
+    padding: 5px;
+    color: var(--brand-dark);
+}
+
+#main-title::before {
+    content: "🛒 ";
+}
+
+/* Barre de recherche */
+#searchBar {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px 16px 12px 38px;
+    border: 2px solid var(--border);
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 15px;
+    background-color: var(--surface);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%236b7066' stroke-width='2'><circle cx='6.5' cy='6.5' r='5.5'/><line x1='10.5' y1='10.5' x2='15' y2='15'/></svg>");
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    transition: border-color 0.15s ease;
+}
+
+#searchBar:focus-visible {
+    outline: none;
+    border-color: var(--brand);
+}
+
+/* Bouton retour */
+#backBtn {
+    cursor: pointer;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 10px;
+}
+
+#backBtn:hover {
+    border-color: var(--brand);
+    color: var(--brand-dark);
+}
+
+/* Emplacements : effet "étiquette de garde-manger" */
+#locations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+}
+
+#locations h2 {
+    grid-column: 1 / -1;
+}
+
+#cuisine, #frigo, #salleDeBain, #cellier, #autres {
+    position: relative;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 10px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+#cuisine:hover, #frigo:hover, #salleDeBain:hover, #cellier:hover, #autres:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px -4px rgb(0 0 0 / 0.12);
+}
+
+#cuisine h3, #frigo h3, #salleDeBain h3, #cellier h3, #autres h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#cuisine::before, #frigo::before, #salleDeBain::before, #cellier::before, #autres::before {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 4px;
+}
+
+#cuisine::before     { content: "🍳"; }
+#frigo::before        { content: "❄️"; }
+#salleDeBain::before  { content: "🛁"; }
+#cellier::before      { content: "📦"; }
+#autres::before       { content: "🗂️"; }
+
+/* petit ruban en haut de chaque étiquette, façon scotch */
+#cuisine::after, #frigo::after, #salleDeBain::after, #cellier::after, #autres::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    width: 36px;
+    height: 10px;
+    background: var(--accent-soft);
+    border-radius: 3px;
+    transform: translateX(-50%) rotate(-2deg);
+}
+
+.active {
+    border-color: var(--brand) !important;
+    background-color: #eef4ec;
+}
+
+/* Listes de produits */
+#locationProductsList,
+#searchResultsList,
+#missingProductsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product {
+    border-radius: var(--radius);
+    border: 2px solid var(--border);
+    background: var(--surface);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.product:hover {
+    box-shadow: 0 4px 10px -3px rgb(0 0 0 / 0.1);
+}
+
+.product:active {
+    transform: scale(0.99);
+}
+
+.product-name {
+    font-weight: 500;
+}
+
+.product-location {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--bg);
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.is_missing {
+    border: 2px solid var(--accent) !important;
+    background-color: var(--accent-soft);
+}
+
+.is_missing .product-location {
+    background: #fff;
+}
+
+/* Bouton réinitialiser */
+#resetBtn {
+    background-color: var(--brand);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 0 6px 16px -4px rgb(0 0 0 / 0.25);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+#resetBtn:hover {
+    background-color: var(--brand-dark);
+}
+
+#resetBtn:active {
+    transform: scale(0.97);
+}
+
+#footer {
+    background-color: #e2e6da;
+    color: var(--text-muted);
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    padding: 14px;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #locations {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
