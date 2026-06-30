@@ -131,7 +131,7 @@ h2 {
     font-weight: 600;
 }
 
-#cuisine::before, #frigo::before, #salleDeBain::before, #cellierLeft::before, #cellierRight::before, #freeze::before, #autres::before {
+#cuisine::before, #frigo::before, #salleDeBain::before, #cellierLeft::before, #cellierRight::before, #freezer::before, #autres::before {
     display: block;
     font-size: 22px;
     margin-bottom: 4px;
@@ -139,13 +139,13 @@ h2 {
 
 #cuisine::before     { content: "🍳"; }
 #frigo::before        { content: "❄️"; }
-#freeze::before        { content: "🧊"; }
+#freezer::before        { content: "🧊"; }
 #salleDeBain::before  { content: "🛁"; }
 #cellierLeft::before, #cellierRight::before      { content: "📦"; }
 #autres::before       { content: "🗂️"; }
 
 /* petit ruban en haut de chaque étiquette, façon scotch */
-#cuisine::after, #frigo::after, #salleDeBain::after, #cellierLeft::after, #cellierRight::after, #freeze::after, #autres::after {
+#cuisine::after, #frigo::after, #salleDeBain::after, #cellierLeft::after, #cellierRight::after, #freezer::after, #autres::after {
     content: "";
     position: absolute;
     top: -6px;
