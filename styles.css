@@ -109,7 +109,7 @@ h2 {
     grid-column: 1 / -1;
 }
 
-#cuisine, #frigo, #salleDeBain, #cellier, #autres {
+#cuisine, #frigo, #salleDeBain, #cellierLeft, #cellierRight, #freezer, #autres {
     position: relative;
     background: var(--surface);
     border: 2px solid var(--border);
@@ -120,18 +120,18 @@ h2 {
     transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-#cuisine:hover, #frigo:hover, #salleDeBain:hover, #cellier:hover, #autres:hover {
+#cuisine:hover, #frigo:hover, #salleDeBain:hover, #cellierLeft:hover, #cellierRight:hover, #freezer:hover, #autres:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 14px -4px rgb(0 0 0 / 0.12);
 }
 
-#cuisine h3, #frigo h3, #salleDeBain h3, #cellier h3, #autres h3 {
+#cuisine h3, #frigo h3, #salleDeBain h3, #cellierLeft h3, #cellierRight h3, #freezer h3, #autres h3 {
     font-family: 'Fredoka', sans-serif;
     font-size: 15px;
     font-weight: 600;
 }
 
-#cuisine::before, #frigo::before, #salleDeBain::before, #cellier::before, #autres::before {
+#cuisine::before, #frigo::before, #salleDeBain::before, #cellierLeft::before, #cellierRight::before, #freeze::before, #autres::before {
     display: block;
     font-size: 22px;
     margin-bottom: 4px;
@@ -139,12 +139,13 @@ h2 {
 
 #cuisine::before     { content: "🍳"; }
 #frigo::before        { content: "❄️"; }
+#freeze::before        { content: "🧊"; }
 #salleDeBain::before  { content: "🛁"; }
-#cellier::before      { content: "📦"; }
+#cellierLeft::before, #cellierRight::before      { content: "📦"; }
 #autres::before       { content: "🗂️"; }
 
 /* petit ruban en haut de chaque étiquette, façon scotch */
-#cuisine::after, #frigo::after, #salleDeBain::after, #cellier::after, #autres::after {
+#cuisine::after, #frigo::after, #salleDeBain::after, #cellierLeft::after, #cellierRight::after, #freeze::after, #autres::after {
     content: "";
     position: absolute;
     top: -6px;

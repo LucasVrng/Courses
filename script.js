@@ -66,7 +66,7 @@
     const searchBar = document.getElementById("searchBar")
 
     const locationsSection = document.getElementById("locations")
-    const freezerDiv = document.getElementById("freeze")
+    const freezerDiv = document.getElementById("freezer")
     const frigoDiv = document.getElementById("frigo")
     const salleDeBainDiv = document.getElementById("salleDeBain")
     const cellierLeftDiv = document.getElementById("cellierLeft")
