@@ -66,10 +66,11 @@
     const searchBar = document.getElementById("searchBar")
 
     const locationsSection = document.getElementById("locations")
-    const cuisineDiv = document.getElementById("cuisine")
+    const freezerDiv = document.getElementById("freeze")
     const frigoDiv = document.getElementById("frigo")
     const salleDeBainDiv = document.getElementById("salleDeBain")
-    const cellierDiv = document.getElementById("cellier")
+    const cellierLeftDiv = document.getElementById("cellierLeft")
+    const cellierRightDiv = document.getElementById("cellierRight")
     const autresDiv = document.getElementById("autres")
 
     const locationProductsSection = document.getElementById("locationProducts")
@@ -82,10 +83,11 @@
     const missingProductsList = document.getElementById("missingProductsList")
 
     const locationDivs = {
-        "Cuisine": cuisineDiv,
+        "Congélateur": freezerDiv,
         "Frigo": frigoDiv,
         "Salle de bain": salleDeBainDiv,
-        "Cellier": cellierDiv,
+        "Cellier Gauche": cellierLeftDiv,
+        "Cellier Droite": cellierRightDiv,
         "Autres": autresDiv
     }
 
