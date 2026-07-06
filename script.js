@@ -87,7 +87,7 @@
         "Frigo": frigoDiv,
         "Salle de bain": salleDeBainDiv,
         "Cellier Gauche": cellierLeftDiv,
-        "Cellier Droite": cellierRightDiv,
+        "Cellier Droit": cellierRightDiv,
         "Autres": autresDiv
     }
 
